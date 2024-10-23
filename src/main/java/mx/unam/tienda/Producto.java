@@ -4,7 +4,7 @@ package mx.unam.tienda;
  *
  * @author HP
  */
-public class Producto {
+public class Producto implements Comparable<Producto> {
 
     /**
      * @return the ean
@@ -65,4 +65,8 @@ public class Producto {
     private String descripcion;
     private String precio;
     private String tipo;
+    @Override
+    public int compareTo(Producto otroProducto) {
+        return this.descripcion.compareToIgnoreCase(otroProducto.getDescripcion());
+    }
 }

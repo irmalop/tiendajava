@@ -4,13 +4,16 @@
  */
 package mx.unam.tienda;
 
+import java.util.List;
 import javax.swing.JOptionPane;
+import mx.unam.tienda.Producto;
 
 /**
  *
  * @author HP
  */
 public class InicioSesion extends javax.swing.JFrame {
+    private List<Producto> listaProductos;
 
     /**
      * Creates new form InicioSesion
@@ -138,7 +141,10 @@ public class InicioSesion extends javax.swing.JFrame {
                 this.dispose();
                 new AltaProducto().setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Bienvenido, " + usuarioActual.getNombreUsuario());
+                this.dispose();
+                listaProductos = tienda.cargarProductos();
+                new ListaProductos(listaProductos).setVisible(true);
+                //JOptionPane.showMessageDialog(rootPane, "Bienvenido, " + usuarioActual.getNombreUsuario());
             }
 
         } else {
