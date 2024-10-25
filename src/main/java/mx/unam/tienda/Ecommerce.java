@@ -109,5 +109,17 @@ public class Ecommerce {
         listaProductos.forEach(System.out::println);
         return listaProductos;
     }
-   
+    public Producto buscarProducto(String descripcion) {
+        System.out.println("Descripcion: " + descripcion);
+        System.out.println(listaProductos);
+        Producto producto1 = new Producto();
+        List<Producto> listaProductos = cargarProductos();
+        for (Producto producto : listaProductos) {
+            if (producto.getDescripcion().equals(descripcion)) {
+                System.out.println("Producto encontrado!");
+                return producto;
+            }
+        }
+        return producto1;
+    }
 }

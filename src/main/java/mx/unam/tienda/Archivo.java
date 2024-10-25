@@ -47,5 +47,18 @@ public class Archivo {
         }
         return true;
     }
+    public boolean guardarCarrito(ProductoCarrito miProductoCarrito) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombre, true))) {
+            writer.append(miProductoCarrito.getProducto().getEan()).append("|")
+                  .append(miProductoCarrito.getProducto().getDescripcion()).append("|")
+                  .append(String.valueOf(miProductoCarrito.getProducto().getPrecio())).append("|")
+                  .append(miProductoCarrito.getProducto().getTipo()).append("|")
+                  .append(String.valueOf(miProductoCarrito.getCantidad())).append("\n");
+        } catch(IOException ex){
+            return false;
+        }
+        return true;
+    }
+
     
 }
